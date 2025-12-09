@@ -1,4 +1,4 @@
-baseURL = "https://github.com/bbiTmi/fcj-internship-report"
+baseURL = "https://bbitmi.github.io/fcj-internship-report/"
 relativeURLs = true
 canonifyURLs = true
 
@@ -15,7 +15,7 @@ home = [ "HTML", "RSS", "JSON"]
   # Git hub repo link
   editURL = ""
   description = ""
-  author = "thienlh@thienlu.com"
+  author = "nguyenlamgiang2198@gmial.com"
   showVisitedLinks = true
   disableBreadcrumb = false
   disableNextPrev = false
