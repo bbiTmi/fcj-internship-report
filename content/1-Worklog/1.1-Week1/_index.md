@@ -1,57 +1,55 @@
 ---
-title: "Week 1 Worklog"
-date: "`r Sys.Date()`"
+title: "Worklog Week 1"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
-
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Familiarize with the AWS account and set up basic configurations to ensure cost management, security, and technical support readiness.  
+* Begin learning foundational services: AWS Account, AWS Budget, IAM, AWS Support.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :---- | :---- | :---- | :---- | :---- |
+| 2 | Create an AWS account | 08/09/2025 | 08/09/2025 | [Create a new AWS account.](https://000001.awsstudygroup.com/) |
+| 3 | Create Budget | 09/09/2025 | 09/09/2025 | [COST MANAGEMENT WITH AWS BUDGETS](https://000007.awsstudygroup.com/) |
+| 4 | \- Learn and create IAM \- Create an IAM Admin account for daily tasks | 09/09/2025 | 10/09/2025 | [AWS Identity and Access Management (IAM) Access Control](https://000002.awsstudygroup.com/) |
+| 5 | \- Learn AWS Support and submit a Support Case | 10/09/2025 | 11/09/2025 | [AWS Support](https://000009.awsstudygroup.com/) |
 
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### Create AWS Account
 
-* Successfully created and configured an AWS Free Tier account.
+* Understood the structure of an AWS account: root user, IAM users, billing, and security.  
+* Root user should only be used for sensitive tasks (such as Billing setup, enabling MFA, financial support).  
+* Recognized the importance of MFA based on AWS security principles (Least Privilege & Multi-Factor Authentication).
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+#### Create AWS Budget
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Learned how to configure a Cost Budget to monitor expenses and receive email alerts when exceeding thresholds.  
+* Understood and distinguished the concepts of Actual cost (real incurred cost) vs Forecasted cost (projected end-of-month cost).
 
-* Used AWS CLI to perform basic operations such as:
+#### Learn IAM and create IAM Admin
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+* Understood IAM structure: User \- Group \- Role \- Policy.  
+* Distinguished the concepts of IAM User (human/application) and IAM Role (permissions assumed temporarily by services or users).  
+* Created an IAM Admin user to replace root for daily operations.
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+#### Learn AWS Support and submit Support Case
+
+* Learned the 4 levels of Support: Basic, Developer, Business, Enterprise.  
+* Under Free Tier, only Basic Support is available, including:  
+  * Documentation, forums, basic Trusted Advisor checks  
+  * Ability to submit Support Cases related to billing  
+* Learned how to create a ticket to get familiar with the technical support workflow.
+
+### Difficulties Encountered
+
+* Difficulty understanding the structure of IAM Policy JSON (Action, Resource, Effect).
+
+### Solutions & Lessons Learned
+
+* Reviewed sample policies in AWS Documentation and used the Visual Editor interface to simplify IAM Policy creation.

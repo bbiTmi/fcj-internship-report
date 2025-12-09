@@ -1,57 +1,61 @@
 ---
-title: "Week 6 Worklog"
-date: "`r Sys.Date()`"
+title: "Worklog Week 6"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
-
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Strengthen understanding of Secure Architecture and AWS core security mechanisms.  
+* Understand how Elastic Load Balancing works and the different routing methods.  
+* Master Disaster Recovery strategies in AWS and distinguish RTO/RPO.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :---- | :---- | :---- | :---- | :---- |
+| 2 | Review: Secure Architecture \- Understand IAM (User, Group, Policy, Role, Least Privilege) \- Types of MFA for account protection \- Compare Security Group vs NACL | 13/10/2025 | 13/10/2025 | |
+| 3 | Learn Elastic Load Balancing concepts: \- Application Load Balancer (ALB) \- Network Load Balancer (NLB) \- Open Systems Interconnections \- Routing types of ALB and NLB \- Sticky Session / Session Affinity | 14/10/2025 | 14/10/2025 | |
+| 4 | Study Key Management Service, AWS Certificate Management, and encryption/key storage | 15/10/2025 | 15/10/2025 | |
+| 5 | Learn Disaster Recovery Strategies: \- Backup & Restore \- Pilot Light \- Warm Standby \- Multi-Site Active-Active Distinguish RTO and RPO | 16/10/2025 | 16/10/2025 | |
 
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### Secure Architecture
 
-* Successfully created and configured an AWS Free Tier account.
+Key points consolidated:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* IAM includes User, Group, Policy, Role; apply the Least Privilege principle.  
+* MFA protects accounts with methods like Virtual MFA, Hardware MFA, and SMS MFA.  
+* Security Group: stateful firewall (automatically allows response traffic).  
+* NACL: stateless, applied at subnet level, suitable for deny rules.  
+* SG controls instance-level traffic → more granular; NACL protects at subnet layer → more general.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+#### Elastic Load Balancing – ALB, NLB, and routing
 
-* Used AWS CLI to perform basic operations such as:
+* ALB operates at Layer 7, supports HTTP/HTTPS, and routing by path, host, header, or query string.  
+* NLB operates at Layer 4, optimized for extremely high throughput and millions of requests per second, suitable for TCP/UDP.  
+* OSI model clarifies ALB (L7) vs NLB (L4).  
+* Understood routing mechanisms: weighted, host-based, path-based (ALB) and TCP/UDP routing (NLB).  
+* Sticky Session / Session Affinity uses cookies to maintain user connections to the same target.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+#### KMS & ACM – Encryption and key management
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* AWS KMS manages creation, storage, and lifecycle of encryption keys (CMK).  
+* Supports encryption across S3, EBS, RDS, and many services via envelope encryption.  
+* Distinguish AWS-managed keys vs Customer-managed keys (CMK).  
+* AWS Certificate Manager (ACM) provides free SSL/TLS certificates with automatic renewal.  
+* Combining ACM with CloudFront/ALB ensures end-to-end HTTPS.
+
+#### Disaster Recovery Strategies
+
+| Strategy | Description | Recovery Level |
+| :---- | :---- | :---- |
+| Backup & Restore | Backup data and restore during disaster | Low |
+| Pilot Light | Keep the minimal core system running | Medium |
+| Warm Standby | A smaller-scale version running in parallel | High |
+| Multi-Site Active-Active | Multiple active sites simultaneously | Very high |
+
+* **RTO (Recovery Time Objective):** acceptable downtime duration.  
+* **RPO (Recovery Point Objective):** maximum acceptable data loss during an incident.

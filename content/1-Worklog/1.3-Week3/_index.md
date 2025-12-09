@@ -1,57 +1,72 @@
 ---
-title: "Week 3 Worklog"
-date: "`r Sys.Date()`"
+title: "Worklog Week 3"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
-
 ### Week 3 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand the concept of Amazon EC2 and the differences between instance types.  
+* Configure basic network security using Security Groups to ensure safe connectivity.  
+* Practice deploying EC2 on Linux & Windows, connecting via SSH and RDP.  
+* Get familiar with installing Web Servers (LAMP/XAMPP) on EC2 to prepare for upcoming lessons on application architecture.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :---- | :---- | :---- | :---- | :---- |
+| 2 | Learn EC2 concepts and instance types | 22/09/2025 | 22/09/2025 | [Module 02-Lab03-04.1 - Create EC2 Instances in Subnets](https://www.youtube.com/watch?v=duJEdF_g1To&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=41) |
+|   | Configure Security Groups for the VPC — set proper inbound/outbound rules for SSH connectivity | 22/09/2025 | 22/09/2025 |   |
+|   | Practice: Launch and connect to an EC2 instance on AWS — basic operations with EC2 | 22/09/2025 | 23/09/2025 | [Introduction to Amazon EC2](https://000004.awsstudygroup.com/) |
+| 4 | Deploy an EC2 Linux instance: \- Connect via SSH \- Recover access when losing the Key Pair \- Install LAMP Web Server | 24/08/2025 | 24/08/2025 | |
+| 5 | Deploy an EC2 Windows instance: \- Connect via Remote Desktop Protocol (RDP) \- Install XAMPP on the Windows instance | 24/08/2025 | 25/08/2025 | |
 
 ### Week 3 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### EC2 Concepts and Architecture
 
-* Successfully created and configured an AWS Free Tier account.
+* EC2 is a compute service delivered under the IaaS model that allows creating virtual machines (instances) on demand.  
+* The EC2 ecosystem includes:  
+  * Instance Types  
+  * AMI  
+  * EBS Volume  
+  * Key Pair  
+  * Security Group  
+  * Elastic IP  
+  * User Data (bootstrapping scripts)
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+#### Security Group — the first firewall layer
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+* Security Group is a **stateful firewall**.  
+* **Inbound rules:** control traffic entering the instance.  
+* **Outbound rules:** control traffic leaving the instance.
 
-* Used AWS CLI to perform basic operations such as:
+#### Deploying EC2 Linux
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+1. Connect via SSH  
+2. Recovering access when losing the key pair:  
+   1. Create a new key pair  
+   2. Use PuTTYgen to extract and copy the full Public Key from the newly created key pair  
+   3. Stop the instance  
+   4. Edit the instance’s User Data and paste the full cloud-config script with the copied Public Key into the `ssh-authorized-keys` section for the appropriate user (e.g., `ec2-user`). The Public Key must start with `ssh-rsa`  
+   5. Restart the instance  
+3. Install the LAMP stack (Apache, MariaDB, PHP)
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+#### Deploying EC2 Windows
+
+* Connect via RDP (mstsc)  
+* Retrieve the Administrator password using the key pair  
+* Install and configure XAMPP  
+* Access the web server through a browser
+
+#### Difficulties Encountered
+
+* SSH initially timed out because the Security Group did not allow the correct port.  
+* When installing LAMP, Apache failed to start due to changes in Amazon Linux 2023, where “amazon-linux-extras” has been replaced by “distro-stream repositories”.
+
+#### Solutions & Lessons Learned
+
+* Double-check Security Group rules to ensure necessary ports are open.  
+* Stop EC2 instances when not in use to avoid unnecessary charges.  
+* Verify the Amazon Linux version and run appropriate commands.

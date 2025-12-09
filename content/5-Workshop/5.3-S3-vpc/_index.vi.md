@@ -1,6 +1,6 @@
 ---
 title : "Truy cập S3 từ VPC"
-date :  "`r Sys.Date()`" 
+date :  "" 
 weight : 3
 chapter : false
 pre : " <b> 5.3. </b> "

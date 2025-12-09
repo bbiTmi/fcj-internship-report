@@ -1,58 +1,63 @@
 ---
 title: "Worklog Tuần 6"
-date: "`r Sys.Date()`"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Củng cố kiến thức về Secure Architecture và các cơ chế bảo mật cốt lõi của AWS.  
+* Hiểu cơ chế hoạt động của Elastic Load Balancing và các phương pháp routing.  
+* Nắm vững các chiến lược Disaster Recovery trong AWS và phân biệt RTO/RPO.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---- | :---- | :---- | :---- | :---- |
+| 2 | Ôn tập: Secure Architecture \- Nắm chắc kiến thức về IAM (User, Group, Policy, Role, Quyền truy cập tối thiểu) \- Các loại MFA để bảo mật tài khoản \- So sánh Security Group vs NACL | 13/10/2025 | 13/10/2025 |   |
+| 3 | Học khái niệm về Elastic Load Balancing: \- Application Load Balancer (ALB) \- Network Load Balancer (NLB) \- Open Systems Interconnections \- Các loại routing của NLB và ALB \- Sticky Session/Session Affinity | 14/10/2025 | 14/10/2025 |   |
+| 4 | Tìm hiểu về Key Management Service, AWS Certificate Management và cách mã hóa, lưu key | 15/10/2025 | 15/10/2025 |   |
+| 5 | Nắm kiến thức các loại Disaster Recovery Strategies: \- Backup & Restore \- Pilot Light \- Warm Standby \- Multi-Site Active-Active Phân biệt RTO và PTO   | 16/10/2025 | 16/08/2025 |   |
 
-### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+###  Kết quả đạt được tuần 6:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+#### Secure Architecture 
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+Nắm vững những điểm quan trọng:
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* IAM gồm User, Group, Policy, Role; tuân thủ nguyên tắc quyền tối thiểu (Least Privilege).  
+* MFA giúp bảo vệ tài khoản với các loại như: Virtual MFA, Hardware MFA, SMS MFA.  
+* Security Group: cấp phép theo stateful firewall (tự động cho phép traffic phản hồi).  
+* NACL: stateless, áp dụng ở cấp subnet, thích hợp cho các rule deny.  
+* SG kiểm soát từng instance \-\> chi tiết hơn; NACL bảo vệ lớp subnet \-\> tổng quát hơn.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+#### Elastic Load Balancing \- ALB, NLB và routing
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+* ALB hoạt động ở Layer 7, hỗ trợ HTTP/HTTPS, routing theo path, host, header, query string.  
+* NLB hoạt động ở Layer 4, tối ưu tốc độ và xử lý hàng triệu request/giây, phù hợp TCP/UDP.  
+* Model OSI giúp phân biệt vai trò của ALB (L7) và NLB (L4).  
+* Hiểu các cơ chế routing: weighted, host-based, path-based (ALB) và TCP/UDP routing (NLB).  
+* Sticky Session / Session Affinity hoạt động bằng cookies để giữ kết nối người dùng về cùng target.
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+#### Tìm hiểu về KMS & ACM \- mã hóa và quản lý khóa
 
+* AWS KMS giúp tạo, lưu, và quản lý khóa mã hóa (CMK)  
+* Hỗ trợ mã hóa S3, EBS, RDS và nhiều dịch vụ khác bằng envelope encryption.  
+* Phân biệt AWS-managed keys và Customer-managed keys (CMK).  
+* AWS Certificate Manager (ACM) cung cấp chứng chỉ SSL/TLS miễn phí và tự động gia hạn.  
+* Kết hợp ACM \+ CloudFront/ALB để đảm bảo HTTPS end-to-end.
 
+#### Disaster Recovery Strategies 
+
+| Chiến lược | Mô tả | Mức độ phục hồi |
+| :---- | :---- | :---- |
+| Backup & Restore | Sao lưu dữ liệu và khôi phục khi sự cố | Thấp |
+| Pilot Light | Giữ phần lõi hệ thống hoạt động ở mức tối thiểu | Trung bình |
+| Warm Standby | Một phiên bản thu nhỏ chạy song song | Cao |
+| Multi-Site Active-Active | Nhiều site hoạt động đồng thời | Rất cao |
+
+* RTO (Recovery Time Objective): thời gian hệ thống có thể chấp nhận downtime.  
+* RPO (Recovery Point Objective): lượng dữ liệu tối đa có thể mất trong sự cố.
+
+   

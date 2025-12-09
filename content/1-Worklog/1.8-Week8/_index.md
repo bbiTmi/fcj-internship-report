@@ -1,57 +1,57 @@
 ---
-title: "Week 8 Worklog"
-date: "`r Sys.Date()`"
+title: "Worklog Week 8"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
-
 ### Week 8 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Reinforce knowledge of High-Performing Architectures to optimize system performance.  
+* Master cost optimization techniques in AWS.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| :---- | :---- | :---- | :---- | :---- |
+| 2 | Review: High Performing Architectures \- Compute Scaling \- Storage Optimization \- Caching \- Network Optimization | 27/10/2025 | 27/10/2025 | |
+| 3 | Review: Cost Optimized Architecture \- Budget \- Saving Plans \- Reserved Instance | 28/10/2025 | 28/10/2025 | |
+| 4 | Consolidate knowledge, solve AI-generated practice questions, and attempt SSA mock tests | 29/10/2025 | 30/10/2025 | |
+| 6 | Review and take the midterm exam | 31/10/2025 | 31/10/2025 | |
 
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### High-Performing Architectures
 
-* Successfully created and configured an AWS Free Tier account.
+**Compute Scaling:**
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Distinguished vertical scaling vs horizontal scaling.  
+* Understood Auto Scaling Groups, scaling policies, and the mechanism to increase/decrease EC2 capacity based on system load.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+**Storage Optimization**
 
-* Used AWS CLI to perform basic operations such as:
+* Understood S3 tiering mechanisms (S3 Standard → IA → Glacier) to balance performance and cost.
 
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
+**Caching**
 
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Caching reduces backend load and improves application performance.  
+* Leveraged Amazon CloudFront and ElastiCache (Redis/Memcached) to reduce latency.
+
+**Network Optimization**
+
+* Understood the importance of VPC Endpoints, enhanced networking, and data path optimization.  
+* Used CloudFront to reduce global latency.
+
+#### Cost-Optimized Architectures
+
+**AWS Budget:** Configure alerts based on actual or forecasted spending.
+
+**Saving Plans:**
+
+* Compute Saving Plans are flexible (support EC2, Fargate, Lambda).  
+* EC2 Instance Saving Plans offer deeper discounts but with less flexibility.
+
+**Reserved Instances (RI):**
+
+* Commit 1–3 years to reduce costs for EC2/RDS.  
+* Suitable for stable and predictable workloads.

@@ -1,31 +1,15 @@
 ---
 title: "Translated Blogs"
-date: "`r Sys.Date()`"
+date: ""
 weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
+###  [Blog 1 - Building geolocation verification for iGaming and sports betting on AWS](3.1-Blog1/)
+This blog describes why the iGaming industry requires geolocation verification to meet regulatory requirements and prevent fraud such as VPN spoofing or proxy betting. It introduces several AWS-based methods including Route 53 geolocation routing, Amazon Location Service, and CloudFront geo-blocking, detailing the strengths and limitations of each. You will understand how to choose the right approach to block unauthorized traffic at the edge, enhance security, and reduce infrastructure costs.
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+###  [Blog 2 - How to run AI model inference with GPUs on Amazon EKS Auto Mode](3.2-Blog2/)
+This blog explains how EKS Auto Mode simplifies GPU operations for AI inference by automatically handling node provisioning, drivers, scaling, and security patching. It walks you through creating a GPU NodePool, deploying an LLM with vLLM, and using Karpenter to scale compute resources on demand. You will see why Auto Mode allows engineering teams to focus on optimizing AI models instead of managing Kubernetes infrastructure.
 
-This section will list and introduce the blogs you have translated. For example:
-
-###  [Blog 1 - Getting started with healthcare data lakes: Using microservices](3.1-Blog1/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 2 - ...](3.2-Blog2/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 3 - ...](3.3-Blog3/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 4 - ...](3.4-Blog4/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 5 - ...](3.5-Blog5/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
-
-###  [Blog 6 - ...](3.6-Blog6/)
-This blog introduces how to start building a data lake in the healthcare sector by applying a microservices architecture. You will learn why data lakes are important for storing and analyzing diverse healthcare data (electronic medical records, lab test data, medical IoT devices…), how microservices help make the system more flexible, scalable, and easier to maintain. The article also guides you through the steps to set up the environment, organize the data processing pipeline, and ensure compliance with security & privacy standards such as HIPAA.
+###  [Blog 3 - Enforcing organization-wide Amazon S3 bucket-tagging policies](3.3-Blog3/)
+This blog explains how organizations can automate and standardize resource tagging for Amazon S3 to improve governance, cost allocation, and security compliance. It illustrates how AWS Config, EventBridge, and Lambda work together to automatically block or allow object uploads based on tagging compliance. You also learn how to deploy a hub-and-spoke architecture using CloudFormation StackSets to enforce tagging policies across all AWS accounts in an organization.

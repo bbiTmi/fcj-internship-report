@@ -1,59 +1,56 @@
 ---
 title: "Worklog Tuần 8"
-date: "`r Sys.Date()`"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Củng cố kiến thức về High-Performing Architectures để tối ưu hiệu năng hệ thống.  
+* Nắm chắc các kỹ thuật tối ưu chi phí Cost Optimization.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---- | :---- | :---- | :---- | :---- |
+| 2 | Ôn tập: High Performing Architectures \- Compute Scaling \- Storage Optimization \- Caching \- Network Optimization | 27/10/2025 | 27/10/2025 |   |
+| 3 | Ôn tập: Cost Optimized Architecture \- Budget \- Saving plan \- Reserved instance | 28/10/2025 | 28/10/2025 |   |
+| 4 | Tổng hợp kiến thức, giải đề do AI tạo  Giải thử đề SSA | 29/10/2025 | 30/10/2025 |   |
+| 6 | Ôn tập và thi giữa kỳ | 31/10/2025 | 31/10/2025 |   |
 
-### Kết quả đạt được tuần 8:
+###  Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### High-Performing Architectures
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+**Compute Scaling:**
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Phân biệt vertical scaling và horizontal scaling.  
+* Hiểu Auto Scaling Group, scaling policies và cơ chế tăng/giảm EC2 theo tải hệ thống.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+**Storage Optimization**
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Cơ chế S3 tiering (S3 Standard \-\> IA \-\> Glacier) để tối ưu tốc độ & chi phí.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+**Caching**
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Caching giúp giảm tải backend và tăng tốc ứng dụng.  
+* Sử dụng Amazon CloudFront, ElastiCache (Redis/Memcached) để cải thiện độ trễ.
 
+**Network Optimization**
 
+* Hiểu tầm quan trọng của VPC endpoints, enhanced networking và tối ưu đường đi dữ liệu.  
+* Sử dụng CloudFront để giảm độ trễ toàn cầu.
+
+#### Cost-Optimized Architectures
+
+**AWS Budget:** Thiết lập cảnh báo dựa trên mức chi tiêu hoặc dự đoán chi tiêu.  
+**Saving Plans**
+
+* Compute Saving Plans linh hoạt (hoạt động cho EC2, Fargate, Lambda).  
+* EC2 Instance Saving Plans chi phí thấp hơn nhưng ít linh hoạt hơn.
+
+**Reserved Instance (RI)**
+
+* Cam kết 1-3 năm để tiết kiệm chi phí EC2/RDS.  
+* Phù hợp workload ổn định, predictable.

@@ -1,29 +1,29 @@
 ---
 title: "Báo cáo thực tập"
-date: "`r Sys.Date()`"
+date: ""
 weight: 1
 chapter: false
 ---
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Văn A
+&emsp; **Họ và tên:** Nguyễn Quách Lam Giang
 
-&emsp; **Số điện thoại:** 0989888999
+&emsp; **Số điện thoại:** 0899197017
 
-&emsp; **Email:** Anguyenvan@gmail.com
+&emsp; **Email:** nguyenlamgiang2198@gmail.com
 
-&emsp; **Trường:** Đại học Sư phạm Kỹ thuật TP.HCM
+&emsp; **Trường:** Đại học FPT TP.HCM
 
-&emsp; **Ngành:** Công nghệ thông tin
+&emsp; **Ngành:** Trí tuệ nhân tạo
 
-&emsp; **Lớp:** AWS082025
+&emsp; **Lớp:** 
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam
 
 &emsp; **Vị trí thực tập:** FCJ Cloud Intern
 
-&emsp; **Thời gian thực tập:** Từ ngày 12/08/2025 đến ngày 12/11/2025
+&emsp; **Thời gian thực tập:** Từ ngày 08/09/2025 đến ngày 09/12/2025
 
 ![Ảnh đại diện của bạn](/images/avatar.png)
 

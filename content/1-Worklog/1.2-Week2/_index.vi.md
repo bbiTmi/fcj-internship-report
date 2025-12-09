@@ -1,59 +1,73 @@
 ---
 title: "Worklog Tuần 2"
-date: "`r Sys.Date()`"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu rõ các khái niệm cốt lõi về Amazon VPC để xây dựng nền tảng mạng an toàn và chuẩn best practice.  
+* Thực hành tạo VPC, Subnet, Route Table, Gateway trên AWS để nắm cơ chế hoạt động thực tế.  
+* Biết cách vẽ kiến trúc mạng bằng Draw.io
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+ 
 
-### Kết quả đạt được tuần 2:
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---- | :---- | :---- | :---- | :---- |
+| 4 | Học khái niệm về VPC \- Tìm hiểu Public Cloud/Private Cloud \- Phân biệt Public Subnet, Private Subnet và VPN-only Subnet \- Route table, Destination/Target \- Internet Gateway vs NAT Gateway | 16/09/2025 | 17/09/2025 | [https://www.youtube.com/watch?v=O9Ac\_vGHquM\&list=PLahN4TLWtox2a3vElknwzU\_urND8hLn1i\&index=25](https://www.youtube.com/watch?v=O9Ac_vGHquM&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=25)   |
+| 4 | Thực hành tạo VPC trên AWS | 17/09/2025 | 17/09/2025 | [Amazon VPC and AWS Site-to-Site VPN Workshop](https://000003.awsstudygroup.com/)   |
+| 6 | Vẽ kiến trúc với Draw.io | 19/09/2025 | 19/09/2025 | [Hướng dẫn vẽ kiến trúc AWS trên draw.io](https://www.youtube.com/watch?v=l8isyDe-GwY&list=PLahN4TLWtox2a3vElknwzU_urND8hLn1i&index=2)    |
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+###  Kết quả đạt được tuần 2:
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+#### VPC và sự khác nhau giữa Public Cloud \- Private Cloud
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Public Cloud chỉ nói về việc hạ tầng do AWS sở hữu; Private Cloud liên quan đến mạng cô lập và bảo mật theo yêu cầu doanh nghiệp.  
+* VPC trong AWS là dạng Virtual Private Cloud \- private theo logic, nhưng vẫn dựa trên hạ tầng public của AWS.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+#### Phân biệt Public Subnet \- Private Subnet \- VPN-only Subnet
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* Public Subnet: có Route Table trỏ ra Internet Gateway (IGW) \-\> cho phép tài nguyên trong subnet truy cập internet trực tiếp.  
+* Private Subnet: không kết nối IGW \-\> muốn ra internet phải đi qua NAT Gateway hoặc NAT Instance.  
+* VPN-only Subnet: chỉ dùng để kết nối về on-premises qua VPN Gateway, không đi internet.
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+#### Route Table \- Destination \- Target
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Route Table định nghĩa đường đi của lưu lượng trong VPC.  
+* Destination: địa chỉ mạng muốn gửi traffic đến  
+* Target: cổng hoặc thành phần sẽ xử lý và chuyển tiếp traffic đến Destination.  
+  Route Table cho Public Subnet  
+* Ví dụ: 
 
+Route table cho **Public Subnet**
 
+| Destination | Target |
+| :---- | :---- |
+| 0.0.0.0/0 | igw-12345 |
+
+**Giải thích:**  
+ \-\> Mọi traffic ra ngoài internet (0.0.0.0/0) phải đi qua Internet Gateway.  
+ Route Table cho **Private Subnet**
+
+| Destination | Target |
+| :---- | :---- |
+| 0.0.0.0/0 | nat-67890 |
+
+Giải thích:  
+ \-\> Instance trong Private Subnet muốn ra internet phải đi qua NAT Gateway (không nhận inbound).
+
+#### Internet Gateway vs NAT Gateway
+
+| Thành phần | Công dụng | Dùng trong |
+| :---- | :---- | :---- |
+| Internet Gateway | Cho phép instance trong public subnet **truy cập** internet và **nhận traffic** vào từ internet | Public subnet |
+| NAT Gateway | Cho phép instance trong private subnet chỉ được outbound ra internet nhưng **không nhận traffic** inbound từ internet | Private subnet |
+
+####  Vẽ kiến trúc với Draw.io
+
+* Biết cách diễn tả VPC, subnet, AZ, IGW, NAT Gateway, EC2 bằng icon.  
+* Hiểu tiêu chuẩn vẽ kiến trúc AWS.  
+* Sơ đồ dễ nhìn giúp truyền đạt kiến trúc rõ ràng hơn khi báo cáo hoặc trình bày.

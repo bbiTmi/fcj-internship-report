@@ -1,16 +1,23 @@
 <div class="searchbox">
     <label for="search-by"><i class="fas fa-search"></i></label>
-    <input data-search-input id="search-by" type="search" placeholder="{{T "Search-placeholder"}}">
+    <input data-search-input id="search-by" type="search" placeholder="{{ T "Search-placeholder" }}">
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
+
 {{ $assetBusting := not .Site.Params.disableAssetsBusting }}
-<script type="text/javascript" src="{{"js/lunr.min.js" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
-<script type="text/javascript" src="{{"js/auto-complete.js" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
-<script type="text/javascript">
-    {{ if .Site.IsMultiLingual }}
-        var baseurl = "{{.Site.BaseURL}}{{.Site.LanguagePrefix}}";
-    {{ else }}
-        var baseurl = "{{.Site.BaseURL}}";
-    {{ end }}
+
+<script src="{{ "js/lunr.min.js" | relURL }}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" defer></script>
+<script src="{{ "js/auto-complete.js" | relURL }}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" defer></script>
+
+<script>
+  {{- /* Hugo >=0.124: dùng hugo.IsMultilingual thay cho .Site.IsMultiLingual */ -}}
+  {{- if hugo.IsMultilingual -}}
+    {{- /* Loại bỏ "/" cuối BaseURL để tránh "//" khi nối với LanguagePrefix */ -}}
+    {{- $base := .Site.BaseURL | strings.TrimSuffix "/" -}}
+    var baseurl = "{{ $base }}{{ .Site.LanguagePrefix }}";
+  {{- else -}}
+    var baseurl = "{{ .Site.BaseURL }}";
+  {{- end -}}
 </script>
-<script type="text/javascript" src="{{"js/search.js" | relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
+
+<script src="{{ "js/search.js" | relURL }}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}" defer></script>

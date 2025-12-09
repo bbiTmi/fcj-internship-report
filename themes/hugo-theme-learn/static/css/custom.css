@@ -1,0 +1,8 @@
+.author-photo {
+  width: 100px;         /* kiểm soát kích thước đồng nhất */
+  height: 100px;        /* đảm bảo hình cân đối */
+  object-fit: cover;    /* tránh méo hình */
+  float: left;
+  margin-right: 15px;
+  border-radius: 6px;   /* tùy chọn: bo góc cho đẹp */
+}

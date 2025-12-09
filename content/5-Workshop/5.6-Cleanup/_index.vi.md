@@ -1,6 +1,6 @@
 ---
 title : "Dọn dẹp tài nguyên"
-date : "`r Sys.Date()`"
+date : ""
 weight : 6
 chapter : false
 pre : " <b> 5.6. </b> "

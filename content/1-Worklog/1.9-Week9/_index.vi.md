@@ -1,59 +1,38 @@
 ---
 title: "Worklog Tuần 9"
-date: "`r Sys.Date()`"
+date: ""
 weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thành thạo thao tác DynamoDB bằng CLI và hiểu rõ cấu trúc bảng NoSQL.  
+* Tạo dữ liệu test bằng AI để kiểm thử hệ thống.  
+* Thống nhất kiến trúc tổng thể của dự án, lựa chọn dịch vụ AWS phù hợp và tính chi phí triển khai.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| :---- | :---- | :---- | :---- | :---- |
+| 2 | \- Thực hành viết CLI để tạo bảng trong DynamoDB \- Dùng AI gen data test thử hệ thống | 03/11/2025 | 03/11/2025 |   |
+| 3 | \- Thảo luận và thống nhất các service dùng cho dự án, vẽ lại kiến trúc và tính toán chi phí với Price Calculator, phân chia công việc và vai trò cho từng thành viên  | 04/11/2025 | 04/11/2025 |   |
+| 4 | \- Tạo mock data cho dự án, tinh chỉnh các feature cho phù hợp với AWS Personalize | 05/11/2025 | 07/11/2025 |   |
 
-### Kết quả đạt được tuần 9:
+###  Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+#### Thao tác DynamoDB bằng AWS CLI
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Cách tạo bảng DynamoDB bằng CLI, định nghĩa Partition Key \- Sort Key.  
+* Cách sử dụng lệnh để thêm (put-item), đọc (get-item), truy vấn (query), scan dữ liệu.  
+* Hiểu rõ JSON structure và cách mapping dữ liệu NoSQL.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+#### Khó khăn gặp phải
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* Cú pháp CLI của DynamoDB dài và dễ sai định dạng JSON.  
+* Mock data ban đầu thiếu tính logic dẫn đến sai lệch khi huấn luyện mô hình Personalize.
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+#### Cách giải quyết & Bài học rút ra
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Sử dụng file JSON template để tránh khai báo thiếu hoặc sai định dạng.  
+* Điều chỉnh mock data theo pattern hành vi người dùng thực tế

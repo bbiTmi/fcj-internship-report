@@ -1,6 +1,6 @@
 ---
 title: "Self-Assessment"
-date: "`r Sys.Date()`"
+date: ""
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
