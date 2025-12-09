@@ -11,7 +11,7 @@ pre: " <b> 5. </b> "
 
 This workshop guides you through building a **Serverless Blood Donation & Emergency System (DaiVietBlood)** on AWS. You will learn how to set up and configure the core AWS services used in the project architecture.
 
-<img src="/images/5-Workshop/5.1-Workshop-overview/AWS_Architecture.jpg">
+![Architecture](/images/AWS_Architecture.jpg)
 
 #### AWS Services Used
 

@@ -12,7 +12,7 @@ pre: " <b> 5. </b> "
 
 Workshop này hướng dẫn bạn xây dựng **Hệ thống Hiến máu & Cấp cứu Serverless (DaiVietBlood)** trên AWS. Bạn sẽ học cách thiết lập và cấu hình các dịch vụ AWS cốt lõi được sử dụng trong kiến trúc dự án.
 
-<img src="/images/5-Workshop/5.1-Workshop-overview/AWS_Architecture.jpg">
+![Architecture](/images/AWS_Architecture.jpg)
 
 #### Các dịch vụ AWS sử dụng
 
