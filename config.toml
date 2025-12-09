@@ -1,6 +1,6 @@
 baseURL = "https://bbitmi.github.io/fcj-internship-report/"
-relativeURLs = true
-canonifyURLs = false
+relativeURLs = false
+canonifyURLs = true
 
 # Change the default theme to be use when building the site with Hugo
 theme = "hugo-theme-learn"
