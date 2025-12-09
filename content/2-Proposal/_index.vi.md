@@ -95,7 +95,7 @@ Skyline Team sẽ cung cấp dịch vụ chuyển đổi số toàn diện, bao 
 
 Hệ thống DaiVietBlood sử dụng kiến trúc **Serverless-First** trên AWS Cloud, ưu tiên khả năng mở rộng, bảo mật và tối ưu vận hành.
 
-![Ảnh kiến trúc AWS](/images/AWS_Architecture.png)
+<img src="/images/AWS_Architecture.jpg">
 
 **Các thành phần chính:**
 

@@ -95,7 +95,7 @@ The Skyline Team will provide comprehensive digital transformation services, inc
 
 The DaiVietBlood system utilizes a **Serverless-First** architecture on AWS Cloud, prioritizing scalability, security, and operational optimization.
 
-![AWS architecture picture](/images/AWS_Architecture.png)
+<img src="/images/AWS_Architecture.jpg">
 
 **Key Components:**
 
