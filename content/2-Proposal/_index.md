@@ -1,115 +1,234 @@
 ---
 title: "Proposal"
-date: ""
+date: "2025-09-08"
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+# Dai Viet Blood Donation & Emergency System (DaiVietBlood)
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+**Implemented by:** Skyline Team – FPT University Ho Chi Minh City
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+**Date:** December 7, 2025
 
-### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+---
 
-### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+## TABLE OF CONTENTS
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+1. **BACKGROUND AND MOTIVATION**
+   - 1.1 Executive Summary
+   - 1.2 Project Success Criteria
+   - 1.3 Assumptions
+2. **SOLUTION ARCHITECTURE / ARCHITECTURAL DIAGRAM**
+   - 2.1 Technical Architecture Diagram
+   - 2.2 Technical Plan
+   - 2.3 Project Plan
+   - 2.4 Security Considerations
+3. **ACTIVITIES AND DELIVERABLES**
+   - 3.1 Activities and Deliverables
+   - 3.2 Out of Scope
+   - 3.3 Path to Production
+4. **EXPECTED AWS COST BREAKDOWN**
+5. **IMPLEMENTATION TEAM**
+6. **RESOURCES & ESTIMATED PERSONNEL COSTS**
+7. **ACCEPTANCE**
 
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+---
 
-### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+## 1. BACKGROUND AND MOTIVATION
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+### 1.1 EXECUTIVE SUMMARY
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+**Customer Background:**
+The DaiVietBlood system is designed to serve the community, including voluntary blood donors, patients in need of emergency blood, and healthcare professionals in Vietnam. The primary customers are blood donors, patient families, and medical staff responsible for managing blood inventory and donation schedules. They require a centralized, reliable platform to optimize the matching process between donors and recipients and improve communication during emergencies. In the context of digital health transformation, DaiVietBlood provides a secure, accessible solution to address localized blood shortages.
 
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+**Business and Technical Objectives:**
+Migrating the DaiVietBlood system from a local/on-premise environment to AWS offers superior advantages:
 
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+- **Business:** AWS allows the application to scale flexibly according to the user base, reduces hardware infrastructure operational costs, and ensures consistent performance nationwide.
+- **Technical:** AWS provides High Availability and medical data security. Adopting a **Serverless Architecture** (AWS Lambda, API Gateway, Cognito, RDS) simplifies backend management, accelerates development, and reduces maintenance costs. The system integrates comprehensive monitoring (CloudWatch) and adheres to strict security standards.
 
-### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+**Summary of Key Use Cases:**
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+| Role                      | Key Function                       | Short Description                                                                                  |
+| :------------------------ | :--------------------------------- | :------------------------------------------------------------------------------------------------- |
+| **Guest**                 | Access Public Information          | View donation guidelines, blood compatibility charts, and educational articles without logging in. |
+| **Member**                | Register/Login, Profile Management | Create accounts, update personal information and blood type.                                       |
+|                           | Book Blood Donation                | Select time slots and locations for donation.                                                      |
+|                           | Submit Emergency Request           | Submit urgent blood requests; the system automatically finds suitable donors.                      |
+| **Staff**                 | Manage Requests & Inventory        | Approve emergency requests, confirm donation schedules, update blood stock.                        |
+| **Administrator (Admin)** | System Administration              | Manage user accounts, configure donation slots, view overview reports.                             |
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+**Summary of Partner’s Professional Services:**
+The Skyline Team will provide comprehensive digital transformation services, including assessing the current local application, designing a Cloud-native architecture, and executing the migration of the system to an AWS Serverless environment. We commit to delivering a secure, scalable system accompanied by automated CI/CD pipelines and detailed operational documentation.
 
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+### 1.2 PROJECT SUCCESS CRITERIA
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+1.  **Functionality:** 100% of core functions (registration, scheduling, emergency requests, administration) operate stably on AWS with no regression errors.
+2.  **Availability:** System achieves Uptime ≥ 99.9%, ensuring continuous 24/7 access.
+3.  **Performance:** Application response time improves by at least 30% compared to the local version. Emergency request processing time is reduced by 40%.
+4.  **Cost:** Infrastructure costs are optimized by at least 20% thanks to the Serverless model and Auto-scaling.
+5.  **User Experience:** UAT acceptance rate reaches a minimum of 95% for all user roles.
+6.  **Security:** Full compliance with data encryption, access management (IAM), and API security requirements.
+7.  **Operations:** CI/CD pipeline is fully automated with deployment time < 10 minutes. Monitoring system covers 100% of critical services.
 
-Total: $0.7/month, $8.40/12 months
+### 1.3 ASSUMPTIONS
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+**Technical & Architectural Assumptions:**
 
-### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+- **Source Code:** The current Local application (Frontend & Backend) is functionally complete. The project focuses on Refactoring for the Cloud (Serverless), excluding the development of new features.
+- **AWS Region:** The entire infrastructure is deployed in **Singapore (ap-southeast-1)** to optimize latency for users in Vietnam. _Note: During the testing phase, due to limited VPC configurations and Free Tier/Student resources, latency may fluctuate (estimated ~3.5s/request)._
+- **Service Limits:** The AWS account uses default limits (Soft limits). Increasing limits to reduce latency will be approved by the Customer when necessary.
+- **Third-party Integration:** The system uses the Gemini API for AI support features.
+- **Access Rights:** The Skyline Team is granted Admin access (IAM Role) to provision resources.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+**Operational & Financial Assumptions:**
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- **Domain:** The Customer owns the domain name (e.g., daivietblood.com) and DNS configuration rights.
+- **Cost:** The cost estimate is based on an assumption of approximately 50,000 API requests/month. Actual costs depend on usage levels (Pay-as-you-go).
 
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+---
+
+## 2. SOLUTION ARCHITECTURE / ARCHITECTURAL DIAGRAM
+
+### 2.1 TECHNICAL ARCHITECTURE DIAGRAM
+
+The DaiVietBlood system utilizes a **Serverless-First** architecture on AWS Cloud, prioritizing scalability, security, and operational optimization.
+
+![AWS architecture picture](/images/AWS_Architecture.png)
+
+**Key Components:**
+
+1.  **Network Infrastructure (VPC):**
+    - _Public Subnet:_ Contains Internet Gateway and NAT Gateway.
+    - _Private Subnet:_ Contains AWS Lambda and Amazon RDS to isolate and secure data, preventing direct Internet access.
+2.  **Application & Data:**
+    - _Frontend:_ Hosted on **AWS Amplify**, distributed via **Amazon CloudFront** (CDN), and assets stored on **S3**.
+    - _Authentication:_ **Amazon Cognito** manages identity and issues JWT tokens.
+    - _API & Compute:_ **Amazon API Gateway** receives requests and routes them to **AWS Lambda** for business logic processing.
+    - _Database:_ **Amazon RDS** stores structured data, located in the Private Subnet.
+3.  **DevOps & Monitoring:**
+    - _CI/CD:_ Uses **AWS CodePipeline, CodeBuild, CodeDeploy** to automate the deployment process.
+    - _Monitoring:_ **Amazon CloudWatch** centrally collects logs and metrics.
+
+### 2.2 TECHNICAL PLAN
+
+The technical implementation process follows the Infrastructure-as-Code (IaC) methodology:
+
+- **Infrastructure Automation:** Use **AWS CloudFormation** to provision VPC, Lambda, RDS, and API Gateway, ensuring consistency across environments (Dev/Staging/Prod).
+- **Application Development:** Refactor backend into modular Lambda functions (NodeJS/Python). Environment variables and sensitive information (DB credentials) are securely encrypted.
+- **CI/CD Process:**
+  - Source (GitHub) -> Build (CodeBuild) -> Deploy (CloudFormation/CodeDeploy).
+  - Includes a Manual Approval step before deploying to the Production environment.
+- **Testing Strategy:** Unit Tests for Lambda, Integration Tests for API, and Load Tests to ensure capacity.
+
+### 2.3 PROJECT PLAN
+
+The project applies the Agile Scrum model over 8 weeks (4 Sprints):
+
+- **Sprint 1 (Foundation):** Set up AWS Account, VPC, RDS.
+- **Sprint 2 (Backend Core):** Develop Lambda, API Gateway, Cognito.
+- **Sprint 3 (Integration):** Deploy Frontend (Amplify), finalize CI/CD Pipeline.
+- **Sprint 4 (Stabilization):** UAT, Performance Optimization, Handover.
+
+### 2.4 SECURITY CONSIDERATIONS
+
+1.  **Access Management:** Use Cognito for user authentication and IAM Roles for service authorization (Least Privilege).
+2.  **Network Isolation:** Database and Lambda are located in the Private Subnet, accessing the Internet only via NAT Gateway.
+3.  **Data Protection:** Data encryption At-rest (on RDS/S3) and In-transit (via HTTPS).
+4.  **Security Monitoring:** CloudWatch Logs record all activities for auditing and intrusion detection.
+
+---
+
+## 3. ACTIVITIES AND DELIVERABLES
+
+### 3.1 ACTIVITIES AND DELIVERABLES
+
+| Phase                         | Timeline  | Key Activities                                                        | Deliverables                                   | Estimate (Man-days) |
+| :---------------------------- | :-------- | :-------------------------------------------------------------------- | :--------------------------------------------- | :------------------ |
+| **Analysis & Design**         | Week 1    | Assess Local state, design Cloud architecture, plan migration.        | SRS Document, Architecture Diagram, API Specs. | 5                   |
+| **Local Development**         | Week 2-3  | Build backend logic, database schema, local unit tests.               | Backend Prototype, Database Schema.            | 10                  |
+| **Frontend & Integration**    | Week 4-5  | Develop Frontend, integrate local APIs, prepare code for refactoring. | Completed Local Application.                   | 10                  |
+| **AWS Infrastructure Setup**  | Week 6    | Write CloudFormation scripts, provision VPC, RDS, IAM.                | IaC Templates, Secure VPC Environment.         | 5                   |
+| **Refactor & Deploy Backend** | Week 7-8  | Convert to Lambda, configure API Gateway, Cognito.                    | Serverless Backend active on AWS.              | 10                  |
+| **Deploy Frontend & CI/CD**   | Week 9-10 | Host Frontend on Amplify, set up automated Pipeline.                  | Production URL, CI/CD Pipeline.                | 10                  |
+| **Testing & Go-live**         | Week 11   | UAT, Security Testing, Performance Optimization.                      | UAT Report, Security Report.                   | 5                   |
+| **Handover & Training**       | Week 12   | Transfer accounts, operations training, handover documentation.       | Operations Manual, Acceptance.                 | 5                   |
+
+### 3.2 OUT OF SCOPE (MVP PHASE)
+
+Due to time and resource limitations of the MVP phase, the following items are not included:
+
+- Optimal user search algorithm based on real-time Geo-location (currently using simplified logic).
+- Complex Auto-scaling for the Database layer (currently using basic RDS).
+- Deep Latency Optimization for regions outside Singapore.
+- Advanced Security Compliance standards such as HIPAA/PCI-DSS.
+
+### 3.3 PATH TO PRODUCTION
+
+To upgrade from the current MVP to a large-scale Production system, the following are required:
+
+1.  **Environment Strategy:** Strictly separate Dev/Staging/Prod environments across different AWS accounts (Multi-account strategy).
+2.  **Database Scaling:** Migrate to Amazon Aurora Serverless or use Read Replicas to increase read/write capacity.
+3.  **Enhanced Monitoring:** Integrate AWS X-Ray to trace requests and identify performance bottlenecks.
+4.  **Strengthened Security:** Deploy AWS WAF with rules to block DDoS and automated bots; use Amazon Inspector for periodic vulnerability scanning.
+
+---
+
+## 4. EXPECTED AWS COST BREAKDOWN
+
+_Region: Asia Pacific (Singapore)_
+
+| Category     | Service      | Estimated Configuration                                       | Monthly Cost (USD)   |
+| :----------- | :----------- | :------------------------------------------------------------ | :------------------- |
+| **Network**  | NAT Gateway  | 1 NAT Gateway (Required for Private Subnet) + Data Processing | ~$43.13              |
+|              | VPC          | Subnets, Security Groups                                      | ~$13.14              |
+|              | CloudFront   | 5GB Data Transfer (Utilizing Free Tier)                       | ~$3.00               |
+| **Compute**  | Lambda       | 1,000 requests, 512MB RAM (Free Tier)                         | ~$0.00               |
+|              | API Gateway  | 1,000 requests                                                | ~$0.00               |
+| **Database** | RDS          | db.t3.micro, 20GB Storage                                     | ~$21.74              |
+| **Storage**  | S3           | 5GB Storage, 200 requests                                     | ~$0.14               |
+| **Hosting**  | Amplify      | Build & Hosting, WAF enabled                                  | ~$16.77              |
+| **Ops**      | CloudWatch   | Logs, Metrics, Alarms                                         | ~$9.41               |
+| **CI/CD**    | CodePipeline | 1 Active Pipeline                                             | ~$1.05               |
+| **Total**    |              |                                                               | **~$108.38 / Month** |
+
+---
+
+## 5. IMPLEMENTATION TEAM
+
+- **Mentor (AWS FCJ):** Nguyen Gia Hung - Head of Solutions Architect.
+- **Project Manager (PM):** Nguyen Duc Lan - Coordination, schedule management, cost optimization, and UAT strategy.
+- **Technical Lead:** Nguyen Cong Minh - In charge of CI/CD, Infrastructure (CDK), Security, and Lambda.
+- **Solution Architect:** Do Khang - Serverless architecture design, AI Chatbot integration, Service Policies.
+- **Fullstack Developer:** Le Hoang Anh - API development, Frontend UI/UX, and application security.
+- **Data Engineer:** Nguyen Quach Lam Giang - RDS administration, VPC/Subnet design, and CloudWatch monitoring.
+
+---
+
+## 6. RESOURCES & ESTIMATED PERSONNEL COSTS
+
+**Time Allocation (Man-hours):**
+The project mobilizes a total of **750 man-hours** distributed equally among 5 members across phases: Foundation, Core Development, Data Analysis, Testing, and Handover.
+
+**Cost Allocation:**
+
+- **Personnel:** $0 (Performed by students as part of an internship/capstone project, counted towards academic credits).
+- **AWS Infrastructure:** ~$15 (Actual costs incurred during dev/test after deducting Credits).
+- **Total Project Cost:** Highly optimized, relying mainly on internal resources and support from the AWS FCJ program.
+
+---
+
+## 7. ACCEPTANCE
+
+### 7.1 Submission of Deliverables:
+
+Upon completion of the "Handover" phase, the Skyline Team will submit all Source Code, Architecture Documentation, Admin Accounts, and Operations Manuals to the Customer/Mentor.
+
+### 7.2 Acceptance Period & Process:
+
+The Customer has 05 business days to review and perform UAT. If the product meets the Success Criteria (Section 1.2), the Customer will sign the acceptance confirmation.
+
+### 7.3 Defect Remediation:
+
+If critical errors arise or features are missing compared to the committed scope, the Skyline Team is responsible for fixing and resubmitting for acceptance as soon as possible.
