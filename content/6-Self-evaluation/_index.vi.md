@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 Trong suốt thời gian thực tập tại **First Cloud Journey (FCJ) - AWS Study Group** từ **ngày 8 tháng 9 năm 2025** đến **ngày 9 tháng 12 năm 2025**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **xây dựng website hỗ trợ hiến máu**, qua đó cải thiện kỹ năng **giao tiếp, viết báo cáo, tinh chỉnh dữ liệu cho mô hình**.  
+Tôi đã tham gia **xây dựng website hỗ trợ hiến máu** theo nhóm, qua đó tôi đã được **làm quen với nhiều bạn mới, học thêm kiến thức về cloud và phát triển kĩ năng mềm cho bản thân**.
 
 Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
 

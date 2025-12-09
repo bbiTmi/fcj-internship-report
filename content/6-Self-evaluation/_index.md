@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 During my internship at **First Cloud Journey (FCJ) - AWS Study Group** from **September 8, 2025** to **December 9, 2025** I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **building a website supporting blood donation**, through which I improved my skills in **communication, report writing, and data feature engineer for modeling**.  
+I participated in **building a website supporting blood donation**, through which I **made friends, learned about Cloud Service and improve soft-skill for myself.**
 
 In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
 
